@@ -1,0 +1,12 @@
+services:
+  libraryadmin.webapp:
+    image: ${DOCKER_REGISTRY-}libraryadminwebapp
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+        ExternalServicesSettings__UrlApiAuth: ${URL_APIAUTH}
+        ExternalServicesSettings__UrlApiLibrary: ${URL_APILIBRARY}
+    ports:
+      - "${WEBAPP_PORT}:8080"
+
