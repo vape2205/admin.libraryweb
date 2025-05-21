@@ -1,0 +1,13 @@
+﻿namespace admin.libraryweb.Exceptions
+{
+    public class TokenExpiredApiException : Exception
+    {
+        public TokenExpiredApiException()
+        {
+        }
+
+        public TokenExpiredApiException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+    }
+}

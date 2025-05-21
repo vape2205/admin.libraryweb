@@ -1,0 +1,62 @@
+﻿@model admin.libraryweb.Models.ExternalServices.Library.BookModel
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Eliminar libro</h1>
+
+<h3>¿Está seguro de eliminar el registro?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Subtitle)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Subtitle)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Authors)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Authors)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Isdn)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Isdn)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Base64File)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Base64File)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UrlDocument)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UrlDocument)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
