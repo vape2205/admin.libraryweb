@@ -12,10 +12,10 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["admin.libraryweb/admin.libraryweb.csproj", "admin.libraryweb/"]
-RUN dotnet restore "./admin.libraryweb/admin.libraryweb.csproj"
+COPY ["./admin.libraryweb.csproj", "app/"]
+RUN dotnet restore "./app/admin.libraryweb.csproj"
 COPY . .
-WORKDIR "/src/admin.libraryweb"
+WORKDIR "/src"
 RUN dotnet build "./admin.libraryweb.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # Esta fase se usa para publicar el proyecto de servicio que se copiará en la fase final.
