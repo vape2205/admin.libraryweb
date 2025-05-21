@@ -58,3 +58,20 @@
         }
     </tbody>
 </table>
+<div>
+    @{
+        var maxPage = 5;
+        string page = Context.Request.Query["page"];
+        int currentPage = string.IsNullOrEmpty(page) ? 1 : Convert.ToInt32(page);
+        int prevPage = currentPage - 1 < 0 ? 1 : currentPage - 1;
+        int nextPage = currentPage + 1 >= maxPage ? maxPage : currentPage + 1;
+    }
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="@($"/Book/Index?page={prevPage}")">Previus</a></li>
+        @for (int i = 1; i <= maxPage; i++)
+        {
+            <li class="page-item @(i==currentPage?"active":"")"><a class="page-link" href="@($"/Book/Index?page={i}")">@i</a></li>
+        }
+        <li class="page-item"><a class="page-link" href="@($"/Book/Index?page={nextPage}")">Next</a></li>
+    </ul>
+</div>
